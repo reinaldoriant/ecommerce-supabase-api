@@ -1,0 +1,29 @@
+{
+  "name": "ecommerce-supabase-api",
+  "version": "1.0.0",
+  "description": "ecommerce-with-supabase-api is a lightweight RESTful API built with Express.js and integrated with Supabase (PostgreSQL). This project serves as a fundamental backend service for managing an e-commerce product catalog, focusing on seamless database integration and efficient data handling.",
+  "homepage": "https://github.com/reinaldoriant/ecommerce-supabase-api#readme",
+  "bugs": {
+    "url": "https://github.com/reinaldoriant/ecommerce-supabase-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reinaldoriant/ecommerce-supabase-api.git"
+  },
+  "license": "ISC",
+  "author": "Reinaldo",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.93.3",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
