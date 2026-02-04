@@ -28,7 +28,7 @@ app.get("/product", async (_, response) => {
   try {
     const { data, error } = await supabase.from("product").select();
     console.log(data);
-    return response.send(data);
+    return response.status(200).send(data);
   } catch (error) {
     return response.send({ error });
   }
@@ -42,7 +42,7 @@ app.get("/product/:id", async (request, response) => {
       .select()
       .eq("id", request.params.id)
     console.log(data);
-    return response.send(data);
+    return response.status(200).send(data);
   } catch (error) {
     return response.send({ error });
   }
@@ -56,7 +56,25 @@ app.post("/product", async (request, response) => {
     if (error) {
       return response.status(400).json(error);
     }
-    response.status(200).json(request.body);
+    response.status(201).json(request.body);
+  } catch (error) {
+    response.send({ error });
+  }
+});
+
+// Update Product
+app.patch("/product/:id", async (request, response) => {
+  console.log(request.params);
+  try {
+    const { data, error } = await supabase
+      .from("product")
+      .update(request.body)
+      .eq("id", request.params.id).select();
+
+    if (error) {
+      return response.status(400).json(error);
+    }
+    response.status(200).send(data);
   } catch (error) {
     response.send({ error });
   }
