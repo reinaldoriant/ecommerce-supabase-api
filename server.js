@@ -79,3 +79,20 @@ app.patch("/product/:id", async (request, response) => {
     response.send({ error });
   }
 });
+
+// Delete Product
+app.delete("/product/:id", async (request, response) => {
+  try {
+    const { data, error } = await supabase
+      .from("product")
+      .delete()
+      .eq("id", request.params.id).select();
+
+    if (error) {
+      return response.status(400).json(error);
+    }
+    return response.send(data);
+  } catch (error) {
+    response.send({ error });
+  }
+});
