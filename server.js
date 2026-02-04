@@ -34,6 +34,20 @@ app.get("/product", async (_, response) => {
   }
 });
 
+// Get Product with specify id
+app.get("/product/:id", async (request, response) => {
+  try {
+    const { data, error } = await supabase
+      .from("product")
+      .select()
+      .eq("id", request.params.id)
+    console.log(data);
+    return response.send(data);
+  } catch (error) {
+    return response.send({ error });
+  }
+});
+
 // Post Product
 app.post("/product", async (request, response) => {
   try {
