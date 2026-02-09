@@ -6,11 +6,11 @@ const router = express.Router();
 // Get all products
 router.get("/", ProductController.getAllProducts);
 
-// Get product by ID
-router.get("/:id", ProductController.getProductById);
-
 // Create new product
 router.post("/", ProductController.createProduct);
+
+// Get product by ID
+router.get("/:id", ProductController.getProductById);
 
 // Update product
 router.patch("/:id", ProductController.updateProduct);
