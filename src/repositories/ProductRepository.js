@@ -1,40 +1,43 @@
 import { supabase } from "../config/supabase.js";
 
+const tableName = "product"; 
+const idProduct = "id";
+
 export const ProductRepository = {
   async findAll() {
-    const { data, error } = await supabase.from("product").select();
+    const { data, error } = await supabase.from(tableName).select();
     return { data, error };
   },
 
   async findById(id) {
     const { data, error } = await supabase
-      .from("product")
+      .from(tableName)
       .select()
-      .eq("id", id);
+      .eq(idProduct, id);
     return { data, error };
   },
 
   async create(productData) {
     const { data, error } = await supabase
-      .from("product")
+      .from(tableName)
       .insert(productData);
     return { data, error };
   },
 
   async update(id, productData) {
     const { data, error } = await supabase
-      .from("product")
+      .from(tableName)
       .update(productData)
-      .eq("id", id)
+      .eq(idProduct, id)
       .select();
     return { data, error };
   },
 
   async delete(id) {
     const { data, error } = await supabase
-      .from("product")
+      .from(tableName)
       .delete()
-      .eq("id", id)
+      .eq(idProduct, id)
       .select();
     return { data, error };
   },
