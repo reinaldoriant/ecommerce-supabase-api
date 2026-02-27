@@ -1,6 +1,6 @@
 import { supabase } from "../config/supabase.js";
 
-const tableName = "product"; 
+const tableName = "products"; 
 const idProduct = "id";
 
 export const ProductRepository = {
